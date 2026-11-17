@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Iron Warrior's Gym – Jaipur</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --orange: #f28c00;
+      --dark: #111111;
+      --gray: #1e1e1e;
+      --light: #f5f5f5;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Montserrat', sans-serif; background: var(--dark); color: var(--light); }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 999;
+      background: rgba(0,0,0,0.92); padding: 14px 40px;
+      display: flex; justify-content: space-between; align-items: center;
+      border-bottom: 2px solid var(--orange);
+    }
+    .logo { font-family: 'Bebas Neue', cursive; font-size: 1.8rem; color: var(--orange); letter-spacing: 2px; }
+    .logo span { color: #fff; }
+    .nav-links a { color: #fff; text-decoration: none; margin-left: 28px; font-weight: 600; font-size: .9rem; letter-spacing: 1px; transition: color .2s; }
+    .nav-links a:hover { color: var(--orange); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #000 0%, #1a0a00 60%, #000 100%);
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; padding: 100px 20px 60px;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at center, rgba(242,140,0,.18) 0%, transparent 70%);
+    }
+    .hero-content { position: relative; z-index: 1; }
+    .hero h1 { font-family: 'Bebas Neue', cursive; font-size: clamp(3rem, 10vw, 7rem); line-height: 1; color: #fff; }
+    .hero h1 span { color: var(--orange); }
+    .hero p { font-size: 1.1rem; color: #ccc; margin: 18px 0 32px; letter-spacing: 2px; text-transform: uppercase; }
+    .btn { background: var(--orange); color: #000; padding: 14px 36px; border-radius: 4px; text-decoration: none; font-weight: 700; letter-spacing: 1px; font-size: .95rem; transition: transform .2s, box-shadow .2s; }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(242,140,0,.4); }
+
+    /* SECTIONS */
+    section { padding: 80px 40px; max-width: 1200px; margin: 0 auto; }
+    .section-title { font-family: 'Bebas Neue', cursive; font-size: clamp(2rem, 5vw, 3.2rem); color: #fff; text-align: center; margin-bottom: 10px; }
+    .section-title span { color: var(--orange); }
+    .divider { width: 60px; height: 4px; background: var(--orange); margin: 0 auto 50px; border-radius: 2px; }
+
+    /* ABOUT */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+    .about-text p { color: #bbb; line-height: 1.8; margin-bottom: 16px; font-size: .97rem; }
+    .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .stat-box { background: var(--gray); border: 1px solid #333; border-left: 4px solid var(--orange); padding: 20px; border-radius: 6px; text-align: center; }
+    .stat-box .num { font-family: 'Bebas Neue', cursive; font-size: 2.5rem; color: var(--orange); }
+    .stat-box .label { font-size: .8rem; color: #aaa; letter-spacing: 1px; text-transform: uppercase; }
+    .map-embed { border-radius: 10px; overflow: hidden; box-shadow: 0 4px 30px rgba(242,140,0,.2); }
+    .map-embed iframe { width: 100%; height: 350px; border: none; }
+
+    /* SERVICES */
+    #services { background: var(--gray); max-width: 100%; padding: 80px 40px; }
+    #services > * { max-width: 1200px; margin-left: auto; margin-right: auto; }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; max-width: 1200px; margin: 0 auto; }
+    .service-card { background: var(--dark); border: 1px solid #2a2a2a; border-top: 3px solid var(--orange); padding: 30px 20px; border-radius: 8px; text-align: center; transition: transform .2s, box-shadow .2s; }
+    .service-card:hover { transform: translateY(-6px); box-shadow: 0 12px 30px rgba(242,140,0,.2); }
+    .service-card .icon { font-size: 2.4rem; margin-bottom: 14px; }
+    .service-card h3 { font-family: 'Bebas Neue', cursive; font-size: 1.4rem; color: var(--orange); letter-spacing: 1px; }
+    .service-card p { font-size: .84rem; color: #999; margin-top: 8px; }
+
+    /* GALLERY */
+    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+    .gallery-item { background: var(--gray); border-radius: 8px; overflow: hidden; aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; }
+    .gallery-item iframe { width: 100%; height: 100%; border: none; }
+    .gallery-label { text-align: center; margin-top: 20px; color: #888; font-size: .85rem; }
+    .gallery-label a { color: var(--orange); }
+
+    /* REVIEWS */
+    #reviews { background: var(--gray); max-width: 100%; padding: 80px 40px; }
+    .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; max-width: 1200px; margin: 0 auto; }
+    .review-card { background: var(--dark); border: 1px solid #2a2a2a; border-radius: 10px; padding: 28px; }
+    .stars { color: var(--orange); font-size: 1.1rem; margin-bottom: 12px; }
+    .review-text { color: #bbb; font-size: .9rem; line-height: 1.7; font-style: italic; margin-bottom: 16px; }
+    .reviewer { font-weight: 700; color: #fff; font-size: .88rem; }
+    .reviewer span { color: #888; font-weight: 400; }
+
+    /* CONTACT */
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
+    .contact-info .item { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 28px; }
+    .contact-info .item .ico { font-size: 1.4rem; color: var(--orange); min-width: 28px; }
+    .contact-info .item h4 { color: #fff; font-size: .95rem; margin-bottom: 4px; }
+    .contact-info .item p { color: #aaa; font-size: .9rem; line-height: 1.6; }
+    .contact-info .item a { color: var(--orange); text-decoration: none; }
+    .contact-map iframe { width: 100%; height: 380px; border: none; border-radius: 10px; }
+
+    /* FOOTER */
+    footer { background: #000; border-top: 2px solid var(--orange); padding: 30px 40px; text-align: center; color: #666; font-size: .85rem; }
+    footer .logo-f { font-family: 'Bebas Neue', cursive; font-size: 1.5rem; color: var(--orange); }
+
+    @media (max-width: 768px) {
+      nav { padding: 12px 20px; }
+      .nav-links { display: none; }
+      section { padding: 60px 20px; }
+      .about-grid, .contact-grid { grid-template-columns: 1fr; }
+      #services, #reviews { padding: 60px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">Iron <span>Warrior's</span> Gym</div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-content">
+    <h1>Iron <span>Warrior's</span><br>Gym</h1>
+    <p>Strength · Discipline · Honor — Jagarpura, Jaipur</p>
+    <a href="#contact" class="btn">Join Now</a>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <h2 class="section-title">About <span>Us</span></h2>
+  <div class="divider"></div>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>Iron Warrior's Gym is Jaipur's premier strength and conditioning facility, located conveniently near SKIT College in Jagarpura. We provide a no-nonsense environment for people serious about transforming their body and mind.</p>
+      <p>Whether you're a beginner stepping into the gym for the first time or a seasoned athlete chasing new PRs, our experienced trainers and world-class equipment will help you reach your goals.</p>
+      <p>Our philosophy: <strong style="color:var(--orange)">Strength. Discipline. Honor.</strong></p>
+    </div>
+    <div class="about-stats">
+      <div class="stat-box"><div class="num">500+</div><div class="label">Members</div></div>
+      <div class="stat-box"><div class="num">5+</div><div class="label">Years Active</div></div>
+      <div class="stat-box"><div class="num">6</div><div class="label">Programs</div></div>
+      <div class="stat-box"><div class="num">4.8★</div><div class="label">Google Rating</div></div>
+    </div>
+  </div>
+  <br/><br/>
+  <div class="map-embed">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d359.2!2d75.8650497!3d26.8241008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396dc9627299a5d1%3A0xb68373eb67004602!2sIRON%20WARRIOR'S%20GYM!5e1!3m2!1sen!2sin!4v1699999999999!5m2!1sen!2sin"
+      allowfullscreen="" loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<div id="services">
+  <h2 class="section-title">Our <span>Programs</span></h2>
+  <div class="divider"></div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="icon">🏋️</div>
+      <h3>Strength Training</h3>
+      <p>Build raw power with progressive overload and compound lifts.</p>
+    </div>
+    <div class="service-card">
+      <div class="icon">⚖️</div>
+      <h3>WeightLifting</h3>
+      <p>Olympic lifts and technique coaching for all skill levels.</p>
+    </div>
+    <div class="service-card">
+      <div class="icon">❤️</div>
+      <h3>Cardio</h3>
+      <p>Dedicated cardio zone to boost endurance and burn fat.</p>
+    </div>
+    <div class="service-card">
+      <div class="icon">⚡</div>
+      <h3>HIIT</h3>
+      <p>High-Intensity Interval Training for maximum calorie burn.</p>
+    </div>
+    <div class="service-card">
+      <div class="icon">🔱</div>
+      <h3>PowerLifting</h3>
+      <p>Squat, Bench, Deadlift — coached meets and competition prep.</p>
+    </div>
+    <div class="service-card">
+      <div class="icon">🔥</div>
+      <h3>CrossFit</h3>
+      <p>Functional movements, community energy, elite conditioning.</p>
+    </div>
+  </div>
+</div>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <h2 class="section-title">Our <span>Facility</span></h2>
+  <div class="divider"></div>
+  <div class="gallery-grid">
+    <div class="gallery-item">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!4v1699999999998!6m8!1m7!1sCAoSLEFGMVFpcE5NNHR4QlFOZ0NrNnpSNWdZeVFMd25KOFVSUEhUT3ZDRFV3Vk5R!2m2!1d26.8241008!2d75.8650497!3f0!4f0!5f0.7820865974627469"
+        allowfullscreen="" loading="lazy">
+      </iframe>
+    </div>
+    <div class="gallery-item">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!4v1699999999997!6m8!1m7!1sCAoSLEFGMVFpcE9MQmhwU1VHclJ3TWQ0TkE3RURTa3dKVEJxbGZhNVN3OEMyQWtx!2m2!1d26.8241008!2d75.8650497!3f180!4f0!5f0.7820865974627469"
+        allowfullscreen="" loading="lazy">
+      </iframe>
+    </div>
+    <div class="gallery-item">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d45!2d75.8650497!3d26.8241008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396dc9627299a5d1%3A0xb68373eb67004602!2sIRON%20WARRIOR'S%20GYM!5e1!3m2!1sen!2sin!4v1699999999996!5m2!1sen!2sin"
+        allowfullscreen="" loading="lazy">
+      </iframe>
+    </div>
+  </div>
+  <p class="gallery-label">
+    View more photos on
+    <a href="https://www.google.co.in/maps/place/IRON+WARRIOR%E2%80%99S+GYM/@26.8241008,75.8650497" target="_blank">Google Maps ↗</a>
+  </p>
+</section>
+
+<!-- REVIEWS -->
+<div id="reviews">
+  <h2 class="section-title">What Members <span>Say</span></h2>
+  <div class="divider"></div>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"Best gym near SKIT college! Great equipment, clean environment and the trainer is very motivating. Lost 12 kg in 4 months here."</p>
+      <div class="reviewer">Rahul Sharma <span>· Google Review</span></div>
+    </div>
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"The powerlifting coaching is top-notch. The owner himself trains with you and pushes you to your limit. Highly recommend to serious lifters."</p>
+      <div class="reviewer">Priya Singh <span>· Google Review</span></div>
+    </div>
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"Very affordable membership and the atmosphere is very energetic. The CrossFit sessions are killer! Great community feel overall."</p>
+      <div class="reviewer">Amit Verma <span>· Google Review</span></div>
+    </div>
+    <div class="review-card">
+      <div class="stars">★★★★☆</div>
+      <p class="review-text">"Excellent trainers who actually know their stuff. HIIT classes are the best in Jaipur. Would love to see more cardio machines added soon."</p>
+      <div class="reviewer">Sneha Gupta <span>· Google Review</span></div>
+    </div>
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"Been a member for 2 years. The discipline and dedication of the staff is unmatched. This place has completely transformed my lifestyle."</p>
+      <div class="reviewer">Vishal Yadav <span>· Google Review</span></div>
+    </div>
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"Strength training program here is amazing. The trainer customizes the plan according to your body type and goals. Very professional."</p>
+      <div class="reviewer">Pooja Meena <span>· Google Review</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h2 class="section-title">Contact <span>Us</span></h2>
+  <div class="divider"></div>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <div class="item">
+        <div class="ico">📍</div>
+        <div>
+          <h4>Address</h4>
+          <p>P.No.104, Narshing Vihar,<br>Near SKIT College, Jagarpura,<br>Jaipur, Rajasthan</p>
+        </div>
+      </div>
+      <div class="item">
+        <div class="ico">📞</div>
+        <div>
+          <h4>Phone</h4>
+          <p>
+            <a href="tel:+918769675676">+91 87696 75676</a><br>
+            <a href="tel:+918233555676">+91 82335 55676</a><br>
+            <a href="tel:+919649706359">+91 96497 06359</a>
+          </p>
+        </div>
+      </div>
+      <div class="item">
+        <div class="ico">🕐</div>
+        <div>
+          <h4>Timings</h4>
+          <p>Monday – Saturday: 5:00 AM – 10:00 PM<br>Sunday: 6:00 AM – 8:00 PM</p>
+        </div>
+      </div>
+      <div class="item">
+        <div class="ico">📱</div>
+        <div>
+          <h4>Find Us on Google Maps</h4>
+          <p><a href="https://www.google.co.in/maps/place/IRON+WARRIOR%E2%80%99S+GYM/@26.8241008,75.8650497" target="_blank">View Location ↗</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="contact-map">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d718.4476874!2d75.8650497!3d26.8241008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396dc9627299a5d1%3A0xb68373eb67004602!2sIRON%20WARRIOR'S%20GYM!5e0!3m2!1sen!2sin!4v1699999999995!5m2!1sen!2sin"
+        allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="logo-f">Iron Warrior's Gym</div>
+  <p style="margin-top:10px;">P.No.104, Narshing Vihar, Near SKIT College, Jagarpura, Jaipur</p>
+  <p style="margin-top:6px;">© 2024 Iron Warrior's Gym. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
