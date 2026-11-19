@@ -3,7 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Iron Warrior's Gym – Jaipur</title>
+  <title>Iron Warrior's Gym – Jaipur | Strength · Discipline · Power</title>
+  <meta name="description" content="Iron Warrior's Gym, Jagarpura, Jaipur (near SKIT College). Strength training, weightlifting, powerlifting, HIIT, CrossFit and cardio. Call +91 87696 75676." />
+  <meta name="theme-color" content="#0d0d0d" />
+  <meta property="og:title" content="Iron Warrior's Gym – Jaipur" />
+  <meta property="og:description" content="Strength · Discipline · Power. Gym near SKIT College, Jagarpura, Jaipur." />
+  <meta property="og:image" content="images/gym-signage.png" />
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml" />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
   <style>
     :root {
@@ -22,7 +28,7 @@
     /* ─── REAL PHOTO ENHANCEMENT ─── */
     .gym-photo {
       width: 100%; height: 100%; object-fit: cover;
-      filter: contrast(1.15) saturate(1.2) brightness(1.06) sharpen(0);
+      filter: contrast(1.15) saturate(1.2) brightness(1.06);
       transition: transform .4s, filter .4s;
     }
     .gym-photo:hover { filter: contrast(1.2) saturate(1.3) brightness(1.08); }
@@ -38,7 +44,7 @@
       border-bottom: 2px solid var(--orange);
     }
     .logo-nav { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-    .logo-nav img { width: 46px; height: 46px; border-radius: 50%; border: 2px solid var(--orange); }
+    .logo-nav img { width: 46px; height: 46px; }
     .logo-nav-text { font-family: 'Bebas Neue', cursive; font-size: 1.5rem; color: var(--white); letter-spacing: 3px; }
     .logo-nav-text span { color: var(--orange); }
     .nav-links a {
@@ -53,6 +59,16 @@
       padding: 10px 22px; border-radius: 3px;
     }
     .nav-cta:hover { background: var(--orange2); }
+
+    .menu-btn { display:none; background:none; border:0; cursor:pointer; padding:8px; }
+    .menu-btn span { display:block; width:26px; height:2px; background:#fff; margin:6px 0; transition:.3s; }
+    .section-label { font-size:.72rem; letter-spacing:3px; color:var(--orange); text-transform:uppercase; margin-bottom:12px; }
+    .wa-float { position:fixed; right:22px; bottom:22px; z-index:999; width:56px; height:56px; border-radius:50%; background:#25d366; display:flex; align-items:center; justify-content:center; box-shadow:0 8px 24px rgba(0,0,0,.4); transition:transform .2s; }
+    .wa-float:hover { transform:scale(1.08); }
+    .wa-float svg { width:30px; height:30px; fill:#fff; }
+    .review-feature { max-width:760px; margin:0 auto; text-align:center; background:var(--dark); border:1px solid #252525; border-radius:12px; padding:48px 40px; }
+    .review-feature .review-text { font-size:1.25rem; color:#ddd; }
+    .review-feature .review-top { justify-content:center; margin:24px 0 0; }
 
     /* ─── HERO ─── */
     .hero {
@@ -272,7 +288,13 @@
     }
     @media (max-width: 768px) {
       nav { padding: 0 20px; }
-      .nav-links { display: none; }
+      .menu-btn { display:block; }
+      .nav-links { display:none; position:absolute; top:70px; left:0; right:0; background:rgba(13,13,13,.98); flex-direction:column; padding:12px 24px 24px; border-bottom:2px solid var(--orange); }
+      .nav-links.open { display:flex; }
+      .nav-links a { margin:0; padding:14px 0; border-bottom:1px solid #222; }
+      .nav-links .nav-cta { text-align:center; margin-top:12px; border:0; }
+      .btn-outline { margin:12px 0 0; }
+      .review-feature { padding:32px 22px; }
       .hero-content { padding: 0 24px; }
       .sec, .sec-sm { padding: 60px 24px; }
       .ribbon { padding: 14px 24px; gap: 20px; }
@@ -298,33 +320,34 @@
     <a href="#contact">Contact</a>
     <a href="#contact" class="nav-cta">Join Now</a>
   </div>
+  <button class="menu-btn" aria-label="Open menu" onclick="document.querySelector('.nav-links').classList.toggle('open')"><span></span><span></span><span></span></button>
 </nav>
 
 <!-- ─── HERO ─── -->
 <div class="hero">
   <div class="hero-bg"></div>
   <div class="hero-content">
-    <img src="images/logo.svg" alt="Logo" style="width:90px;height:90px;border-radius:50%;border:3px solid var(--orange);margin-bottom:20px;filter:drop-shadow(0 0 12px rgba(242,140,0,0.6));" />
-    <div class="hero-eyebrow">📍 Jagarpura, Jaipur · Near SKIT College</div>
+    <img src="images/logo.svg" alt="Iron Warrior's Gym logo" style="width:96px;height:96px;margin-bottom:20px;filter:drop-shadow(0 0 14px rgba(242,140,0,0.45));" />
+    <div class="hero-eyebrow">Jagarpura, Jaipur · Near SKIT College</div>
     <h1>Iron<br><em>Warrior's</em><br>Gym.</h1>
-    <p>Strength. Discipline. Honor. Jaipur's most committed training ground for people serious about transformation.</p>
+    <p>Strength. Discipline. Power. Jaipur's most committed training ground for people serious about transformation.</p>
     <a href="#contact" class="btn-primary">Join Now →</a>
     <a href="#programs" class="btn-outline">Our Programs</a>
   </div>
   <div class="hero-badges">
-    <div class="badge"><div class="n">500+</div><div class="l">Members</div></div>
-    <div class="badge"><div class="n">6+</div><div class="l">Programs</div></div>
-    <div class="badge"><div class="n">4.8★</div><div class="l">Google Rating</div></div>
+    <div class="badge"><div class="n">6</div><div class="l">Programs</div></div>
+    <div class="badge"><div class="n">7</div><div class="l">Days a Week</div></div>
+    <div class="badge"><div class="n">SKIT</div><div class="l">Right Next Door</div></div>
   </div>
 </div>
 
 <!-- ─── RIBBON ─── -->
 <div class="ribbon">
-  <div class="ribbon-item"><span class="ico">🏋️</span><span>Strength Training</span></div>
-  <div class="ribbon-item"><span class="ico">⚡</span><span>HIIT Classes</span></div>
-  <div class="ribbon-item"><span class="ico">🔱</span><span>PowerLifting</span></div>
-  <div class="ribbon-item"><span class="ico">🔥</span><span>CrossFit</span></div>
-  <div class="ribbon-item"><span class="ico">❤️</span><span>Cardio Zone</span></div>
+  <div class="ribbon-item"><span>Strength Training</span></div>
+  <div class="ribbon-item"><span>HIIT Classes</span></div>
+  <div class="ribbon-item"><span>PowerLifting</span></div>
+  <div class="ribbon-item"><span>CrossFit</span></div>
+  <div class="ribbon-item"><span>Cardio Zone</span></div>
 </div>
 
 <!-- ─── ABOUT ─── -->
@@ -342,7 +365,7 @@
       <ul class="highlight-list">
         <li>Personal Training &amp; Group Sessions</li>
         <li>Premium Equipment for All Programs</li>
-        <li>Expert Coaches — 5+ Years Experience</li>
+        <li>Experienced, Certified Coaches</li>
         <li>Flexible Membership Plans</li>
         <li>Clean, Motivating Environment</li>
       </ul>
@@ -360,32 +383,32 @@
     <div class="prog-card">
       <div class="prog-card-bg" style="background-image:url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&q=80')"></div>
       <div class="prog-overlay"></div>
-      <div class="prog-content"><div class="prog-icon">🏋️</div><h3>Strength Training</h3><p>Build raw power with progressive overload</p></div>
+      <div class="prog-content"><h3>Strength Training</h3><p>Build raw power with progressive overload</p></div>
     </div>
     <div class="prog-card">
       <div class="prog-card-bg" style="background-image:url('https://images.unsplash.com/photo-1517963879433-6ad2b056d712?w=600&q=80')"></div>
       <div class="prog-overlay"></div>
-      <div class="prog-content"><div class="prog-icon">⚖️</div><h3>WeightLifting</h3><p>Olympic lifts &amp; technique coaching</p></div>
+      <div class="prog-content"><h3>WeightLifting</h3><p>Olympic lifts &amp; technique coaching</p></div>
     </div>
     <div class="prog-card">
       <div class="prog-card-bg" style="background-image:url('https://images.unsplash.com/photo-1540497077202-7c8a3999166f?w=600&q=80')"></div>
       <div class="prog-overlay"></div>
-      <div class="prog-content"><div class="prog-icon">❤️</div><h3>Cardio</h3><p>Dedicated cardio zone, endurance focus</p></div>
+      <div class="prog-content"><h3>Cardio</h3><p>Dedicated cardio zone, endurance focus</p></div>
     </div>
     <div class="prog-card">
       <div class="prog-card-bg" style="background-image:url('https://images.unsplash.com/photo-1549060279-7e168fcee0c2?w=600&q=80')"></div>
       <div class="prog-overlay"></div>
-      <div class="prog-content"><div class="prog-icon">⚡</div><h3>HIIT</h3><p>High-intensity intervals for maximum burn</p></div>
+      <div class="prog-content"><h3>HIIT</h3><p>High-intensity intervals for maximum burn</p></div>
     </div>
     <div class="prog-card">
       <div class="prog-card-bg" style="background-image:url('https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?w=600&q=80')"></div>
       <div class="prog-overlay"></div>
-      <div class="prog-content"><div class="prog-icon">🔱</div><h3>PowerLifting</h3><p>Squat, Bench, Deadlift — coached meets</p></div>
+      <div class="prog-content"><h3>PowerLifting</h3><p>Squat, Bench, Deadlift — coached meets</p></div>
     </div>
     <div class="prog-card">
       <div class="prog-card-bg" style="background-image:url('https://images.unsplash.com/photo-1587245068-d19b51a622d0?w=600&q=80')"></div>
       <div class="prog-overlay"></div>
-      <div class="prog-content"><div class="prog-icon">🔥</div><h3>CrossFit</h3><p>Functional movements, elite conditioning</p></div>
+      <div class="prog-content"><h3>CrossFit</h3><p>Functional movements, elite conditioning</p></div>
     </div>
   </div>
 </section>
@@ -418,7 +441,7 @@
     </div>
     <!-- Button to open Google Maps photos -->
     <div class="g-item g-maps-btn" onclick="window.open('https://www.google.co.in/maps/place/IRON+WARRIOR%E2%80%99S+GYM/@26.8241008,75.8650497', '_blank')" style="cursor:pointer;">
-      <div class="ic">📸</div>
+      <div class="ic">↗</div>
       <strong>More Photos on Google Maps</strong>
       <span>View all gym photos ↗</span>
     </div>
@@ -456,72 +479,12 @@
     <h2 class="sec-title">What Our <span>Members Say</span></h2>
     <div class="bar-c"></div>
   </div>
-  <div class="reviews-scroll">
-    <!-- REAL review from Google Maps screenshot -->
-    <div class="review-card">
-      <div class="review-top">
-        <div class="review-avatar">P</div>
-        <div class="review-meta">
-          <h4>Parshant Choudhary</h4>
-          <span>2 reviews · 3 months ago</span>
-        </div>
-      </div>
-      <div class="stars-row">★★★★★</div>
-      <p class="review-text">"Best gym in the area and the behaviour of the staff among the customer is very good."</p>
-      <div class="google-badge">
-        <svg viewBox="0 0 48 48"><path fill="#f44336" d="M24 4C12.95 4 4 12.95 4 24s8.95 20 20 20 20-8.95 20-20S35.05 4 24 4z"/><path fill="#fff" d="M24 11c4.07 0 7.68 1.54 10.44 4.06L30.1 19.4C28.46 17.9 26.33 17 24 17c-4.42 0-8.08 2.97-9.4 7H9.74C11.2 17.14 17.07 11 24 11z"/><path fill="#ffeb3b" d="M14.6 24c0-.69.07-1.36.19-2H9.74A14.9 14.9 0 0 0 9 24c0 2.14.45 4.17 1.26 6h4.95a9.02 9.02 0 0 1-.61-6z"/><path fill="#4caf50" d="M24 37c2.49 0 4.79-.82 6.65-2.2l-4.35-3.56A8.95 8.95 0 0 1 24 32c-3.86 0-7.14-2.42-8.47-5.86H10.6A15 15 0 0 0 24 37z"/><path fill="#1565c0" d="M38.95 20H24v7h8.57a9.03 9.03 0 0 1-3.27 4.24l4.35 3.56C37.07 32.3 39 28.37 39 24c0-1.37-.18-2.7-.05-4z"/></svg>
-        <span>Google Review</span>
-      </div>
-    </div>
-
-    <div class="review-card">
-      <div class="review-top">
-        <div class="review-avatar">R</div>
-        <div class="review-meta"><h4>Rahul Sharma</h4><span>Local Guide · 5 months ago</span></div>
-      </div>
-      <div class="stars-row">★★★★★</div>
-      <p class="review-text">"Best gym near SKIT college! Great equipment, clean environment and the trainer is very motivating. Lost 12 kg in 4 months here."</p>
-      <div class="google-badge"><svg viewBox="0 0 48 48"><path fill="#f44336" d="M24 4C12.95 4 4 12.95 4 24s8.95 20 20 20 20-8.95 20-20S35.05 4 24 4z"/><path fill="#fff" d="M24 11c4.07 0 7.68 1.54 10.44 4.06L30.1 19.4C28.46 17.9 26.33 17 24 17c-4.42 0-8.08 2.97-9.4 7H9.74C11.2 17.14 17.07 11 24 11z"/><path fill="#ffeb3b" d="M14.6 24c0-.69.07-1.36.19-2H9.74A14.9 14.9 0 0 0 9 24c0 2.14.45 4.17 1.26 6h4.95a9.02 9.02 0 0 1-.61-6z"/><path fill="#4caf50" d="M24 37c2.49 0 4.79-.82 6.65-2.2l-4.35-3.56A8.95 8.95 0 0 1 24 32c-3.86 0-7.14-2.42-8.47-5.86H10.6A15 15 0 0 0 24 37z"/><path fill="#1565c0" d="M38.95 20H24v7h8.57a9.03 9.03 0 0 1-3.27 4.24l4.35 3.56C37.07 32.3 39 28.37 39 24c0-1.37-.18-2.7-.05-4z"/></svg><span>Google Review</span></div>
-    </div>
-
-    <div class="review-card">
-      <div class="review-top">
-        <div class="review-avatar">A</div>
-        <div class="review-meta"><h4>Amit Verma</h4><span>4 reviews · 2 months ago</span></div>
-      </div>
-      <div class="stars-row">★★★★★</div>
-      <p class="review-text">"Very affordable membership and the atmosphere is very energetic. The CrossFit sessions are killer! Great community feel overall."</p>
-      <div class="google-badge"><svg viewBox="0 0 48 48"><path fill="#f44336" d="M24 4C12.95 4 4 12.95 4 24s8.95 20 20 20 20-8.95 20-20S35.05 4 24 4z"/><path fill="#fff" d="M24 11c4.07 0 7.68 1.54 10.44 4.06L30.1 19.4C28.46 17.9 26.33 17 24 17c-4.42 0-8.08 2.97-9.4 7H9.74C11.2 17.14 17.07 11 24 11z"/><path fill="#ffeb3b" d="M14.6 24c0-.69.07-1.36.19-2H9.74A14.9 14.9 0 0 0 9 24c0 2.14.45 4.17 1.26 6h4.95a9.02 9.02 0 0 1-.61-6z"/><path fill="#4caf50" d="M24 37c2.49 0 4.79-.82 6.65-2.2l-4.35-3.56A8.95 8.95 0 0 1 24 32c-3.86 0-7.14-2.42-8.47-5.86H10.6A15 15 0 0 0 24 37z"/><path fill="#1565c0" d="M38.95 20H24v7h8.57a9.03 9.03 0 0 1-3.27 4.24l4.35 3.56C37.07 32.3 39 28.37 39 24c0-1.37-.18-2.7-.05-4z"/></svg><span>Google Review</span></div>
-    </div>
-
-    <div class="review-card">
-      <div class="review-top">
-        <div class="review-avatar">V</div>
-        <div class="review-meta"><h4>Vishal Yadav</h4><span>Member 2+ years · 1 month ago</span></div>
-      </div>
-      <div class="stars-row">★★★★★</div>
-      <p class="review-text">"Been a member for 2 years. The discipline and dedication of the staff is unmatched. This place has completely transformed my lifestyle."</p>
-      <div class="google-badge"><svg viewBox="0 0 48 48"><path fill="#f44336" d="M24 4C12.95 4 4 12.95 4 24s8.95 20 20 20 20-8.95 20-20S35.05 4 24 4z"/><path fill="#fff" d="M24 11c4.07 0 7.68 1.54 10.44 4.06L30.1 19.4C28.46 17.9 26.33 17 24 17c-4.42 0-8.08 2.97-9.4 7H9.74C11.2 17.14 17.07 11 24 11z"/><path fill="#ffeb3b" d="M14.6 24c0-.69.07-1.36.19-2H9.74A14.9 14.9 0 0 0 9 24c0 2.14.45 4.17 1.26 6h4.95a9.02 9.02 0 0 1-.61-6z"/><path fill="#4caf50" d="M24 37c2.49 0 4.79-.82 6.65-2.2l-4.35-3.56A8.95 8.95 0 0 1 24 32c-3.86 0-7.14-2.42-8.47-5.86H10.6A15 15 0 0 0 24 37z"/><path fill="#1565c0" d="M38.95 20H24v7h8.57a9.03 9.03 0 0 1-3.27 4.24l4.35 3.56C37.07 32.3 39 28.37 39 24c0-1.37-.18-2.7-.05-4z"/></svg><span>Google Review</span></div>
-    </div>
-
-    <div class="review-card">
-      <div class="review-top">
-        <div class="review-avatar">S</div>
-        <div class="review-meta"><h4>Sneha Gupta</h4><span>3 reviews · 4 months ago</span></div>
-      </div>
-      <div class="stars-row">★★★★☆</div>
-      <p class="review-text">"Excellent trainers who actually know their stuff. HIIT classes are the best in Jaipur. Would love to see more cardio machines added soon."</p>
-      <div class="google-badge"><svg viewBox="0 0 48 48"><path fill="#f44336" d="M24 4C12.95 4 4 12.95 4 24s8.95 20 20 20 20-8.95 20-20S35.05 4 24 4z"/><path fill="#fff" d="M24 11c4.07 0 7.68 1.54 10.44 4.06L30.1 19.4C28.46 17.9 26.33 17 24 17c-4.42 0-8.08 2.97-9.4 7H9.74C11.2 17.14 17.07 11 24 11z"/><path fill="#ffeb3b" d="M14.6 24c0-.69.07-1.36.19-2H9.74A14.9 14.9 0 0 0 9 24c0 2.14.45 4.17 1.26 6h4.95a9.02 9.02 0 0 1-.61-6z"/><path fill="#4caf50" d="M24 37c2.49 0 4.79-.82 6.65-2.2l-4.35-3.56A8.95 8.95 0 0 1 24 32c-3.86 0-7.14-2.42-8.47-5.86H10.6A15 15 0 0 0 24 37z"/><path fill="#1565c0" d="M38.95 20H24v7h8.57a9.03 9.03 0 0 1-3.27 4.24l4.35 3.56C37.07 32.3 39 28.37 39 24c0-1.37-.18-2.7-.05-4z"/></svg><span>Google Review</span></div>
-    </div>
-
-    <div class="review-card">
-      <div class="review-top">
-        <div class="review-avatar">P</div>
-        <div class="review-meta"><h4>Pooja Meena</h4><span>6 reviews · 5 months ago</span></div>
-      </div>
-      <div class="stars-row">★★★★★</div>
-      <p class="review-text">"Strength training program here is amazing. The trainer customizes the plan for your body type and goals. Very professional setup."</p>
-      <div class="google-badge"><svg viewBox="0 0 48 48"><path fill="#f44336" d="M24 4C12.95 4 4 12.95 4 24s8.95 20 20 20 20-8.95 20-20S35.05 4 24 4z"/><path fill="#fff" d="M24 11c4.07 0 7.68 1.54 10.44 4.06L30.1 19.4C28.46 17.9 26.33 17 24 17c-4.42 0-8.08 2.97-9.4 7H9.74C11.2 17.14 17.07 11 24 11z"/><path fill="#ffeb3b" d="M14.6 24c0-.69.07-1.36.19-2H9.74A14.9 14.9 0 0 0 9 24c0 2.14.45 4.17 1.26 6h4.95a9.02 9.02 0 0 1-.61-6z"/><path fill="#4caf50" d="M24 37c2.49 0 4.79-.82 6.65-2.2l-4.35-3.56A8.95 8.95 0 0 1 24 32c-3.86 0-7.14-2.42-8.47-5.86H10.6A15 15 0 0 0 24 37z"/><path fill="#1565c0" d="M38.95 20H24v7h8.57a9.03 9.03 0 0 1-3.27 4.24l4.35 3.56C37.07 32.3 39 28.37 39 24c0-1.37-.18-2.7-.05-4z"/></svg><span>Google Review</span></div>
+  <div class="review-feature">
+    <div class="stars-row">★★★★★</div>
+    <p class="review-text">"Best gym in the area and the behaviour of the staff among the customer is very good."</p>
+    <div class="review-top">
+      <div class="review-avatar">P</div>
+      <div class="review-meta" style="text-align:left"><h4>Parshant Choudhary</h4><span>Google Review</span></div>
     </div>
   </div>
   <div style="text-align:center; margin-top:40px;">
@@ -567,7 +530,7 @@
   <div class="footer-logo">Iron Warrior's Gym</div>
   <div class="footer-mid">
     <div>P.No.104, Narshing Vihar, Near SKIT College, Jagarpura, Jaipur</div>
-    <div style="margin-top:6px; color:#444;">© 2024 Iron Warrior's Gym · All rights reserved</div>
+    <div style="margin-top:6px; color:#444;">© <span id="yr">2026</span> Iron Warrior's Gym · All rights reserved</div>
   </div>
   <div class="footer-right footer-phones">
     <a href="tel:+918769675676">+91 87696 75676</a>
@@ -576,5 +539,10 @@
   </div>
 </footer>
 
+<a class="wa-float" href="https://wa.me/918769675676?text=Hi%2C%20I%27d%20like%20to%20know%20about%20membership%20at%20Iron%20Warrior%27s%20Gym" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg viewBox="0 0 32 32"><path d="M16 3C9 3 3.3 8.7 3.3 15.7c0 2.4.7 4.7 1.9 6.7L3 29l6.8-2.1c1.9 1 4 1.6 6.2 1.6 7 0 12.7-5.7 12.7-12.7S23 3 16 3zm0 23.2c-2 0-3.9-.5-5.5-1.5l-.4-.2-4 1.2 1.3-3.9-.3-.4a10.5 10.5 0 1 1 8.9 4.8zm5.8-7.8c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.3-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.7l.5-.6.3-.5c.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.2 1.4 3.5c.2.2 2.4 3.6 5.7 5 2.1.9 2.9 1 3.9.8.6-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.2-.6-.4z"/></svg></a>
+<script>
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>document.querySelector('.nav-links').classList.remove('open')));
+</script>
 </body>
 </html>
